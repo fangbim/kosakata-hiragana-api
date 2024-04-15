@@ -1,8 +1,8 @@
 const db = require("../models");
-const Hiragana = db.hiragana;
+const Huruf = db.huruf;
 
 exports.create = (req, res) => {
-    Hiragana.create(req.body)
+    Huruf.create(req.body)
     .then(() => {
         res.send({message: 'Data Berhasil di simpan'})
     })
@@ -12,19 +12,19 @@ exports.create = (req, res) => {
 }
 
 exports.findAll = (req, res) => {
-    Hiragana.find()
+    Huruf.find()
     .then((data) => {
         res.send(data)
     })
     .catch((err) => {
         res.status(500).send({message: err.message})
-    });
+    })
 }
 
 exports.show = (req, res) => {
     const id = req.params.id;
 
-    Hiragana.findById(id)
+    Huruf.findById(id)
     .then((data) => {
         res.send(data)
     }).catch((err) => {
@@ -35,7 +35,7 @@ exports.show = (req, res) => {
 exports.update = (req, res) => {
     const id = req.params.id;
 
-    Hiragana.findByIdAndUpdate(id, req.body, {useFindAndModify: false})
+    Huruf.findByIdAndUpdate(id, req.body, {useFindAndModify: false})
     .then(data => {
         if(!data) {
             res.status(404).send({message: "Tidak dapat mengupdate data"})
@@ -47,7 +47,7 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
     const id = req.params.id;
 
-    Hiragana.findByIdAndDelete(id)
+    Huruf.findByIdAndDelete(id)
     .then((data) => {
         if(!data) {
             res.status(404).send({message: "Tidak dapat menghapus data"})

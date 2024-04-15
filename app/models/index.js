@@ -4,5 +4,6 @@ const mongoose = require("mongoose");
 module.exports = {
     mongoose,
     url: dbConfig.url,
-    hiragana: require('./hiragana.model.js')(mongoose)
+    hiragana: require('./hiragana.model.js')(mongoose),
+    huruf: require('./huruf.model.js')(mongoose)
 }

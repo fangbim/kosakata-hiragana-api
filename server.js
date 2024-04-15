@@ -26,7 +26,13 @@ db.mongoose.connect(db.url, mongooseConfig)
         process.exit();
     })
 
+app.get('/', (req, res) => {
+    res.send('API hiragana')
+})
+    
 require('./app/routes/hiragana.routes')(app);
+
+require('./app/routes/huruf.routes')(app);
 
 const PORT = process.env.PORT || 8000;
 
